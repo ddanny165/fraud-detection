@@ -27,10 +27,43 @@ If you want to train models properly with a full dataset, please contact me dire
 - Standardized data using `StandardScaler`
 - Train/validation/test split (75% / 20% / 5%)
 
+---
+
+## 📐 Hyperparameter Tuning
+
+Hyperparameters were optimized using **randomized search** with validation ROC AUC as the objective metric.  
+This approach helps avoid bias from the imbalanced dataset (accuracy alone would be misleading).
+
+### Logistic Regression
+
+- Search space: `C` (inverse regularization), penalty type (`l1`, `l2`), fraud class weight
+- Method: 50 random samples using scikit-learn’s `ParameterSampler`
+- Final choice:
+  - `C = 0.1336`
+  - `penalty = l2`
+  - `fraud class weight = 15.263`
+
+### Multilayer Perceptron (MLP)
+
+- Search space: hidden size, batch size, learning rate, epochs, fraud class weight
+- Method: 60 random trials with mini-batch training
+- Final choice:
+  - hidden size = 32
+  - batch size = 32
+  - learning rate = 0.000736
+  - epochs = 5
+  - fraud class weight = 3.544
+
+📌 Using ROC AUC instead of accuracy ensured that the models truly improved at fraud detection rather than just predicting the majority (legitimate) class.
+
+---
+
 ### 🔹 Handling Class Imbalance
 
 - Applied **class weighting** (higher penalty for fraud misclassification)
 - Considered but did not use oversampling due to overfitting
+
+---
 
 ### 🔹 Models
 

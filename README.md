@@ -27,6 +27,28 @@ If you want to train models properly with a full dataset, please contact me dire
 - Standardized data using `StandardScaler`
 - Train/validation/test split (75% / 20% / 5%)
 
+### 🔹 Models
+
+1. **Logistic Regression** (baseline)
+
+   - Implemented with scikit-learn
+   - Optimized using cross-entropy loss
+   - Tuned `C`, regularization type, and class weight
+
+2. **Multilayer Perceptron (MLP)**
+   - Implemented in PyTorch
+   - Architecture: 2 hidden layers, ReLU activations, sigmoid output
+   - Loss: `BCEWithLogitsLoss` with fraud class weighting
+   - Optimizer: Adam
+   - Tuned hidden size, batch size, learning rate, epochs, and class weight
+
+---
+
+### 🔹 Handling Class Imbalance
+
+- Applied **class weighting** (higher penalty for fraud misclassification)
+- Considered but did not use oversampling due to overfitting
+
 ---
 
 ## 📐 Hyperparameter Tuning
@@ -48,37 +70,13 @@ This approach helps avoid bias from the imbalanced dataset (accuracy alone would
 - Search space: hidden size, batch size, learning rate, epochs, fraud class weight
 - Method: 60 random trials with mini-batch training
 - Final choice:
-  - hidden size = 32
-  - batch size = 32
-  - learning rate = 0.000736
-  - epochs = 5
-  - fraud class weight = 3.544
+  - `hidden size = 32`
+  - `batch size = 32`
+  - `learning rate = 0.000736`
+  - `epochs = 5`
+  - `fraud class weight = 3.544`
 
 📌 Using ROC AUC instead of accuracy ensured that the models truly improved at fraud detection rather than just predicting the majority (legitimate) class.
-
----
-
-### 🔹 Handling Class Imbalance
-
-- Applied **class weighting** (higher penalty for fraud misclassification)
-- Considered but did not use oversampling due to overfitting
-
----
-
-### 🔹 Models
-
-1. **Logistic Regression** (baseline)
-
-   - Implemented with scikit-learn
-   - Optimized using cross-entropy loss
-   - Tuned `C`, regularization type, and class weight
-
-2. **Multilayer Perceptron (MLP)**
-   - Implemented in PyTorch
-   - Architecture: 2 hidden layers, ReLU activations, sigmoid output
-   - Loss: `BCEWithLogitsLoss` with fraud class weighting
-   - Optimizer: Adam
-   - Tuned hidden size, batch size, learning rate, epochs, and class weight
 
 ---
 

@@ -1,0 +1,40 @@
+Best hyperparameters found: {'hidden_size': 32, 'batch_size': 32, 'learning_rate': 0.0007360403836176338, 'fraud_class_weight': 3.544025274937464, 'epochs': 5}
+Epoch 1/5 | Loss: 0.0193 | Accuracy: 0.9992 | ROC AUC: 0.9357
+Epoch 2/5 | Loss: 0.0081 | Accuracy: 0.9994 | ROC AUC: 0.9753
+Epoch 3/5 | Loss: 0.0074 | Accuracy: 0.9994 | ROC AUC: 0.9761
+Epoch 4/5 | Loss: 0.0067 | Accuracy: 0.9994 | ROC AUC: 0.9858
+Epoch 5/5 | Loss: 0.0063 | Accuracy: 0.9994 | ROC AUC: 0.9886
+Model and scaler saved.
+Validation Set Evaluation:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     45490
+           1       0.85      0.76      0.80        79
+
+    accuracy                           1.00     45569
+   macro avg       0.92      0.88      0.90     45569
+weighted avg       1.00      1.00      1.00     45569
+
+ROC AUC Score (Validation Set): 0.9775780460860782
+Train Set Evaluation:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00    170588
+           1       0.86      0.86      0.86       295
+
+    accuracy                           1.00    170883
+   macro avg       0.93      0.93      0.93    170883
+weighted avg       1.00      1.00      1.00    170883
+
+ROC AUC Score (Train Set): 0.995642290891763
+Test Set Evaluation:
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     11373
+           1       0.94      0.85      0.89        20
+
+    accuracy                           1.00     11393
+   macro avg       0.97      0.92      0.95     11393
+weighted avg       1.00      1.00      1.00     11393
+
+ROC AUC Score (Test Set): 0.9929570034291744

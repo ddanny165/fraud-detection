@@ -1,0 +1,40 @@
+python3 train_logreg.py                                          ✔  46s  jupyter_env   11:08:59 
+Best Hyperparameters: {'C': np.float64(0.13364961159866529), 'class_weight': {0: 1, 1: np.float64(15.263157894736842)}, 'max_iter': 1000, 'penalty': 'l2', 'solver': 'liblinear'}
+
+Validation Set Evaluation:
+              precision    recall  f1-score   support
+
+           0     0.9996    0.9995    0.9995     45490
+           1     0.7143    0.7595    0.7362        79
+
+    accuracy                         0.9991     45569
+   macro avg     0.8569    0.8795    0.8679     45569
+weighted avg     0.9991    0.9991    0.9991     45569
+
+ROC AUC Score (Val): 0.9635571595927329
+Model and scaler saved as JSON.
+
+python3 evaluate.py  
+Train Set Evaluation:
+              precision    recall  f1-score   support
+
+           0     0.9997    0.9994    0.9996    170588
+           1     0.7251    0.8407    0.7786       295
+
+    accuracy                         0.9992    170883
+   macro avg     0.8624    0.9201    0.8891    170883
+weighted avg     0.9993    0.9992    0.9992    170883
+
+ROC AUC Score (Train Set): 0.9865178189258053
+
+Test Set Evaluation:
+              precision    recall  f1-score   support
+
+           0     0.9997    0.9996    0.9996     11373
+           1     0.7727    0.8500    0.8095        20
+
+    accuracy                         0.9993     11393
+   macro avg     0.8862    0.9248    0.9046     11393
+weighted avg     0.9993    0.9993    0.9993     11393
+
+ROC AUC Score (Test Set): 0.9781983645476127
